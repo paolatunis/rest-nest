@@ -3,7 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserModule } from './User/user.module';
 import { APP_FILTER, APP_INTERCEPTOR } from '@nestjs/core';
-import { ExceptionFilterHttp } from './User/common/filters/exception-filter-http.filter';
+import { ExceptionFilterHttp } from './common/filters/exception-filter-http.filter';
 
 @Module({
   imports: [UserModule],
