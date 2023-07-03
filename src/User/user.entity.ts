@@ -1,11 +1,13 @@
 import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
+import { isUsernameUnique } from './is-username-unique.validator';
 
 export class User {
   id: number;
 
   @IsNotEmpty({ message: 'O nome é obrigatório.' })
   @IsString()
-  name: string;
+  @isUsernameUnique({ message: 'Username deve ser único.' })
+  username: string;
 
   @IsEmail(
     {},

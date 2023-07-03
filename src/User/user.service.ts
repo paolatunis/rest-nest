@@ -6,7 +6,7 @@ export class UserService {
   private users: Array<User> = [
     {
       id: 1,
-      name: 'Paola',
+      username: 'Paola',
       email: 'paolatunis@gmail.com',
       password: 'password',
       fullName: 'Paola Tunis',
@@ -19,8 +19,8 @@ export class UserService {
     return user;
   }
 
-  public getByName(name: string) {
-    return this.users.find((user) => user.name === name);
+  public getByUsername(name: string) {
+    return this.users.find((user) => user.username === name);
   }
 
   getHello(): string {

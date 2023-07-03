@@ -7,8 +7,8 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Get(':name')
-  public getByName(@Param('name') name: string) {
-    const user = this.userService.getByName(name);
+  public getByUsername(@Param('name') name: string) {
+    const user = this.userService.getByUsername(name);
     return user;
   }
 
