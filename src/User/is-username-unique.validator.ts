@@ -8,7 +8,9 @@ import {
 } from 'class-validator';
 
 @ValidatorConstraint()
-class isUsernameUniqueConstraint implements ValidatorConstraintInterface {
+export class IsUsernameUniqueConstraint
+  implements ValidatorConstraintInterface
+{
   constructor(private userService: UserService) {}
   validate(
     username: string,
@@ -18,14 +20,14 @@ class isUsernameUniqueConstraint implements ValidatorConstraintInterface {
   }
 }
 
-export function isUsernameUnique(validationOptions: ValidationOptions) {
+export function IsUsernameUnique(validationOptions: ValidationOptions) {
   return function (object: object, propertyName: string) {
     registerDecorator({
       target: object.constructor,
       propertyName: propertyName,
       options: validationOptions,
       constraints: [],
-      validator: isUsernameUniqueConstraint,
+      validator: IsUsernameUniqueConstraint,
     });
   };
 }
