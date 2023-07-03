@@ -1,5 +1,6 @@
 import { IsEmail, IsNotEmpty, IsString } from 'class-validator';
 import { IsUsernameUnique } from './is-username-unique.validator';
+import { Exclude } from 'class-transformer';
 
 export class User {
   id: number;
@@ -18,6 +19,9 @@ export class User {
   @IsString()
   email: string;
 
+  @Exclude({
+    toPlainOnly: true,
+  })
   @IsNotEmpty({ message: 'A senha é obrigatória.' })
   @IsString()
   password: string;
